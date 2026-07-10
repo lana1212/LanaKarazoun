@@ -272,13 +272,13 @@ section { padding: 6rem 4rem; }
   border-bottom: 1px solid var(--border);
 }
 .resume-row-item {
-  display: flex; justify-content: space-between; gap: 1rem;
-  font-size: 14px; color: var(--muted); padding: 6px 0;
+  display: flex; flex-direction: column; gap: 3px;
+  font-size: 14px; color: var(--muted); padding: 8px 0;
   border-bottom: 1px solid var(--border); line-height: 1.5;
 }
 .resume-row-item:last-child { border-bottom: none; }
-.resume-row-item .item-label { color: var(--text); }
-.resume-row-item .item-val { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.resume-row-item .item-label { color: var(--text); font-weight: 500; }
+.resume-row-item .item-val { color: var(--muted); font-size: 13px; white-space: normal; }
 .cert-item {
   display: flex; align-items: flex-start; gap: 10px; padding: 8px 0;
   border-bottom: 1px solid var(--border); font-size: 14px;
@@ -298,6 +298,7 @@ section { padding: 6rem 4rem; }
   background: var(--bg2); border: 1px solid var(--border);
   border-radius: 18px; padding: 3.5rem;
   position: relative; overflow: hidden;
+  text-align: center;
 }
 .contact-box::before {
   content: ''; position: absolute; top: -60px; right: -60px;
@@ -306,7 +307,7 @@ section { padding: 6rem 4rem; }
   pointer-events: none;
 }
 .contact-box .section-title { margin-bottom: 0.75rem; }
-.contact-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 2rem; }
+.contact-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 2rem; justify-content: center; }
 .contact-link {
   display: flex; align-items: center; gap: 8px; font-size: 14px;
   padding: 10px 18px; border-radius: 10px;
@@ -696,7 +697,7 @@ footer {
 <section id="contact">
   <div class="container">
     <div class="contact-box">
-      <div class="section-label">06 / Contact</div>
+      <div class="section-label" style="display:flex; justify-content:center;">06 / Contact</div>
       <h2 class="section-title">Open to the right opportunity.</h2>
       <p class="section-desc" style="margin-bottom:0">I'm a curious, detail-oriented analyst who likes figuring things out — whether that's a messy dataset, an automation opportunity, or a business question nobody has thought to ask yet. If you're looking for someone who brings both analytical rigor and creative thinking to the table, let's talk.</p>
       <div class="contact-links">

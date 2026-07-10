@@ -334,23 +334,28 @@ footer {
   .hero { padding: 3rem 1.5rem 2.5rem; text-align: left; align-items: flex-start; }
   .hero h1 { font-size: 2rem; white-space: normal; letter-spacing: -0.01em; }
   .hero-sub { font-size: 15px; text-align: left; max-width: 100%; }
-  .hero-badge { font-size: 10px; padding: 4px 10px; }
-  .hero-actions { justify-content: flex-start; }
+  .hero-badge { font-size: 10px; padding: 4px 10px; white-space: normal; text-align: center; }
+  .hero-actions { justify-content: flex-start; flex-wrap: wrap; }
   .hero-ticker { flex-wrap: wrap; justify-content: flex-start; text-align: left; margin-top: 2rem; }
   section { padding: 4rem 1.5rem; }
   .about-grid, .projects-grid, .resume-row { grid-template-columns: 1fr; }
   .project-card.featured, .project-card[style*="span 2"] { grid-column: span 1 !important; }
-  .about-top { flex-direction: column; align-items: flex-start; text-align: left; }
+  .about-top { flex-direction: column; align-items: flex-start; }
   .about-top img { align-self: center; }
+  .about-bio { text-align: left; }
   .about-stats { grid-template-columns: 1fr 1fr; }
+  .stat-card { padding: 1.25rem 1rem; }
+  .stat-card .num { font-size: 1.5rem; }
   .skills-grid { grid-template-columns: 1fr; }
   .skill-group-title { font-size: 11px; }
   .skill-list li { font-size: 13px; }
-  .project-card.featured { grid-column: span 1; }
   .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+  .exp-tags { flex-wrap: wrap; }
   .contact-box { padding: 2rem 1.5rem; }
+  .contact-links { flex-direction: column; }
   .resume-row-item { flex-direction: column; gap: 2px; }
   .resume-row-item .item-val { white-space: normal; font-size: 12px; }
+  .proj-footer { flex-direction: column; align-items: flex-start; gap: 8px; }
   body { overflow-x: hidden; }
 }
 </style>
@@ -606,6 +611,17 @@ footer {
           <li>Claude (Anthropic) <span class="skill-pill pill-active">Active</span></li>
           <li>MS Copilot <span class="skill-pill pill-active">Active</span></li>
           <li>No-Code Tooling <span class="skill-pill pill-learning">Exploring</span></li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Strategy &amp; Collaboration</div>
+        <ul class="skill-list">
+          <li>Stakeholder Management <span class="skill-pill pill-strong">Expert</span></li>
+          <li>Executive Reporting <span class="skill-pill pill-strong">Expert</span></li>
+          <li>Root Cause Analysis <span class="skill-pill pill-strong">Expert</span></li>
+          <li>KPI Development <span class="skill-pill pill-active">Active</span></li>
+          <li>Requirements Gathering <span class="skill-pill pill-active">Active</span></li>
+          <li>Process Documentation <span class="skill-pill pill-active">Active</span></li>
         </ul>
       </div>
     </div>

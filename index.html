@@ -298,7 +298,6 @@ section { padding: 6rem 4rem; }
   background: var(--bg2); border: 1px solid var(--border);
   border-radius: 18px; padding: 3.5rem;
   position: relative; overflow: hidden;
-  text-align: center;
 }
 .contact-box::before {
   content: ''; position: absolute; top: -60px; right: -60px;
@@ -306,7 +305,9 @@ section { padding: 6rem 4rem; }
   background: radial-gradient(circle, rgba(91,95,214,0.07) 0%, transparent 70%);
   pointer-events: none;
 }
-.contact-box .section-title { margin-bottom: 0.75rem; }
+.contact-box .section-label { text-align: center; }
+.contact-box .section-title { margin-bottom: 0.75rem; text-align: center; }
+.contact-box .section-desc { text-align: left; }
 .contact-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 2rem; justify-content: center; }
 .contact-link {
   display: flex; align-items: center; gap: 8px; font-size: 14px;
@@ -697,7 +698,7 @@ footer {
 <section id="contact">
   <div class="container">
     <div class="contact-box">
-      <div class="section-label" style="display:flex; justify-content:center;">06 / Contact</div>
+      <div class="section-label">06 / Contact</div>
       <h2 class="section-title">Open to the right opportunity.</h2>
       <p class="section-desc" style="margin-bottom:0">I'm a curious, detail-oriented analyst who likes figuring things out — whether that's a messy dataset, an automation opportunity, or a business question nobody has thought to ask yet. If you're looking for someone who brings both analytical rigor and creative thinking to the table, let's talk.</p>
       <div class="contact-links">

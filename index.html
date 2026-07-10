@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lana Karazoun — Finance & Data Analytics</title>
+<meta name="description" content="Finance Regulatory Analyst at Citibank transitioning into data analytics and business intelligence. MBA candidate at USF." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:      #faf7f2;
+  --bg2:     #fff8f0;
+  --bg3:     #f5f0e8;
+  --border:  rgba(100,80,50,0.1);
+  --border2: rgba(100,80,50,0.18);
+  --text:    #1e1a14;
+  --muted:   #7a7060;
+  --accent:  #5b5fd6;
+  --accent2: #8b92f8;
+  --accent3: #b8bcff;
+  --fh: 'Syne', sans-serif;
+  --fb: 'DM Sans', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: var(--fb); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+hr.divider { border: none; border-top: 1px solid var(--border); }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(250,247,242,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 56px;
+}
+.nav-brand {
+  font-family: var(--fh); font-weight: 700; font-size: 15px;
+  letter-spacing: 0.04em;
+  display: flex; align-items: center; gap: 10px;
+  color: var(--text);
+}
+.nav-brand .dot {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; color: #fff;
+}
+.nav-links { display: flex; align-items: center; gap: 0.1rem; list-style: none; }
+.nav-links a {
+  font-size: 13px; color: var(--muted); padding: 6px 11px; border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+.nav-links a:hover { color: var(--text); background: rgba(91,95,214,0.07); }
+.nav-cta {
+  font-size: 13px; font-family: var(--fh); font-weight: 600;
+  padding: 7px 16px; border-radius: 8px;
+  background: var(--accent); color: #fff;
+  transition: opacity 0.2s;
+}
+.nav-cta:hover { opacity: 0.88; }
+
+/* HERO */
+.hero {
+  min-height: calc(100vh - 56px);
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  padding: 6rem 4rem 4rem;
+  max-width: 1000px; margin: 0 auto;
+  text-align: center;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-family: var(--fh); font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid rgba(91,95,214,0.25);
+  background: rgba(91,95,214,0.06);
+  border-radius: 100px; padding: 5px 14px;
+  margin-bottom: 2rem; width: fit-content;
+}
+.hero-badge::before {
+  content: ''; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+.hero h1 {
+  font-family: var(--fh); font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  font-weight: 800; line-height: 1.1; letter-spacing: -0.02em;
+  margin-bottom: 1.75rem; color: var(--text);
+  white-space: nowrap;
+}
+.hero h1 .hl { color: var(--accent); }
+
+.hero-sub {
+  font-size: 18px; color: var(--muted); max-width: 580px;
+  margin-bottom: 2.5rem; line-height: 1.75; text-align: center;
+}
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+
+.btn-primary {
+  font-family: var(--fh); font-size: 14px; font-weight: 700;
+  padding: 12px 24px; border-radius: 10px;
+  background: var(--accent); color: #fff;
+  transition: opacity 0.2s, transform 0.15s;
+}
+.btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+
+.btn-ghost {
+  font-size: 14px; color: var(--muted); padding: 12px 20px; border-radius: 10px;
+  border: 1px solid var(--border2); background: var(--bg2);
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  display: flex; align-items: center; gap: 6px;
+}
+.btn-ghost:hover { color: var(--text); border-color: rgba(91,95,214,0.3); background: rgba(91,95,214,0.06); }
+
+.hero-ticker {
+  margin-top: 3.5rem; font-size: 12px; color: var(--muted);
+  font-family: var(--fh); letter-spacing: 0.04em;
+  display: flex; align-items: center; gap: 8px;
+}
+.hero-ticker span { color: var(--accent); }
+
+/* SECTIONS */
+section { padding: 6rem 4rem; }
+.container { max-width: 1000px; margin: 0 auto; }
+
+.section-label {
+  font-size: 11px; font-family: var(--fh); font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.75rem;
+}
+.section-title {
+  font-family: var(--fh); font-size: 1.35rem;
+  font-weight: 700; line-height: 1.3; letter-spacing: 0;
+  color: var(--text); margin-bottom: 1rem;
+}
+.section-desc {
+  font-size: 16px; color: var(--muted); max-width: 620px;
+  margin-bottom: 3rem; line-height: 1.75;
+}
+
+/* ABOUT */
+#about { background: var(--bg); }
+.about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start; }
+.about-bio { font-size: 16px; color: var(--muted); line-height: 1.85; }
+.about-bio p + p { margin-top: 1.2rem; }
+.about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.stat-card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 12px; padding: 2rem 1.5rem;
+}
+.stat-card .num {
+  font-family: var(--fh); font-size: 2rem; font-weight: 800;
+  color: var(--text); line-height: 1; margin-bottom: 8px;
+}
+.stat-card .num .accent { color: var(--accent); }
+.stat-card .label { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+/* EXPERIENCE */
+#experience { background: var(--bg3); }
+.exp-list { display: flex; flex-direction: column; }
+.exp-item {
+  display: grid; grid-template-columns: 160px 1fr; gap: 2rem;
+  padding: 2rem 0; border-bottom: 1px solid var(--border);
+}
+.exp-item:last-child { border-bottom: none; }
+.exp-period {
+  font-size: 12px; font-family: var(--fh); font-weight: 600;
+  color: var(--accent); letter-spacing: 0.04em; margin-bottom: 4px;
+}
+.exp-company { font-size: 12px; color: var(--muted); }
+.exp-title {
+  font-family: var(--fh); font-size: 17px; font-weight: 700;
+  color: var(--text); margin-bottom: 0.6rem;
+}
+.exp-desc { font-size: 14px; color: var(--muted); line-height: 1.75; }
+.exp-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1rem; }
+.tag {
+  font-size: 11px; font-family: var(--fh); font-weight: 600;
+  letter-spacing: 0.04em; padding: 3px 10px; border-radius: 100px;
+  border: 1px solid var(--border2); color: var(--muted);
+  background: var(--bg2);
+}
+
+/* PROJECTS */
+#projects { background: var(--bg); }
+.projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.project-card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 14px; padding: 1.75rem;
+  display: flex; flex-direction: column;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.project-card:hover {
+  border-color: rgba(91,95,214,0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 24px rgba(91,95,214,0.08);
+}
+.project-card.featured {
+  grid-column: span 2;
+  background: var(--bg3);
+  border-color: rgba(91,95,214,0.2);
+  border-top: 2px solid var(--accent);
+}
+.proj-eyebrow {
+  font-size: 11px; font-family: var(--fh); font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.6rem;
+}
+.proj-title {
+  font-family: var(--fh); font-size: 18px; font-weight: 700;
+  color: var(--text); margin-bottom: 0.75rem; line-height: 1.3;
+}
+.proj-desc { font-size: 14px; color: var(--muted); line-height: 1.7; flex: 1; }
+.proj-finding {
+  margin-top: 1.25rem; padding: 0.85rem 1rem;
+  background: rgba(91,95,214,0.05);
+  border: 1px solid rgba(91,95,214,0.15);
+  border-radius: 8px; font-size: 13px; color: #4a4e9e; line-height: 1.6;
+}
+.proj-finding strong { font-weight: 600; }
+.proj-footer {
+  margin-top: 1.25rem; display: flex; align-items: center;
+  justify-content: space-between; gap: 1rem;
+}
+.proj-stack { font-size: 12px; color: var(--muted); }
+
+/* SKILLS */
+#skills { background: var(--bg3); }
+.skills-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem; }
+.skill-group {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 14px; padding: 1.5rem;
+}
+.skill-group-title {
+  font-family: var(--fh); font-size: 13px; font-weight: 700;
+  color: var(--accent); letter-spacing: 0.06em; text-transform: uppercase;
+  margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border);
+}
+.skill-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.skill-list li {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 14px; color: var(--text);
+}
+.skill-pill {
+  font-size: 10px; font-family: var(--fh); font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 2px 9px; border-radius: 100px;
+}
+.pill-strong { background: rgba(91,95,214,0.1); color: #4a4e9e; }
+.pill-active { background: rgba(91,95,214,0.06); color: #7a7ec8; }
+.pill-learning { background: rgba(100,80,50,0.07); color: var(--muted); }
+
+/* RESUME */
+#resume { background: var(--bg); }
+.resume-row { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+.resume-block + .resume-block { margin-top: 2rem; }
+.resume-block-title {
+  font-family: var(--fh); font-size: 14px; font-weight: 700;
+  color: var(--text); margin-bottom: 1rem; padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+.resume-row-item {
+  display: flex; justify-content: space-between; gap: 1rem;
+  font-size: 14px; color: var(--muted); padding: 6px 0;
+  border-bottom: 1px solid var(--border); line-height: 1.5;
+}
+.resume-row-item:last-child { border-bottom: none; }
+.resume-row-item .item-label { color: var(--text); }
+.resume-row-item .item-val { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.cert-item {
+  display: flex; align-items: flex-start; gap: 10px; padding: 8px 0;
+  border-bottom: 1px solid var(--border); font-size: 14px;
+}
+.cert-item:last-child { border-bottom: none; }
+.cert-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--accent); margin-top: 7px; flex-shrink: 0;
+}
+.cert-name { color: var(--text); }
+.cert-issuer { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.resume-ctas { margin-top: 2.5rem; display: flex; gap: 12px; }
+
+/* CONTACT */
+#contact { background: var(--bg3); }
+.contact-box {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 18px; padding: 3.5rem;
+  position: relative; overflow: hidden;
+}
+.contact-box::before {
+  content: ''; position: absolute; top: -60px; right: -60px;
+  width: 240px; height: 240px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(91,95,214,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.contact-box .section-title { margin-bottom: 0.75rem; }
+.contact-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 2rem; }
+.contact-link {
+  display: flex; align-items: center; gap: 8px; font-size: 14px;
+  padding: 10px 18px; border-radius: 10px;
+  border: 1px solid var(--border2); color: var(--muted);
+  background: var(--bg);
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.contact-link:hover {
+  color: var(--accent); border-color: rgba(91,95,214,0.3);
+  background: rgba(91,95,214,0.05);
+}
+.contact-link svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* FOOTER */
+footer {
+  padding: 2rem; text-align: center; font-size: 12px; color: var(--muted);
+  border-top: 1px solid var(--border); font-family: var(--fh); letter-spacing: 0.04em;
+  background: var(--bg);
+}
+
+/* RESPONSIVE */
+@media (max-width: 680px) {
+  nav { padding: 0 1rem; }
+  .nav-links { display: none; }
+  .hero { padding: 4rem 1.5rem 3rem; }
+  .hero h1 { font-size: clamp(2.2rem, 10vw, 3rem); white-space: normal; }
+  section { padding: 4rem 1.5rem; }
+  .about-grid, .projects-grid, .resume-row, .skills-grid { grid-template-columns: 1fr; }
+  .project-card.featured { grid-column: span 1; }
+  .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+  .contact-box { padding: 2rem 1.5rem; }
+  .resume-row-item {
+    flex-direction: column; gap: 2px;
+  }
+  .resume-row-item .item-val {
+    white-space: normal; font-size: 12px; color: var(--muted);
+  }
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+  body { overflow-x: hidden; }
+  .container { padding: 0; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-brand">
+    <div class="dot">LK</div>
+    Lana Karazoun
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#resume">Resume</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get in touch &rarr;</a>
+</nav>
+
+<div class="hero container">
+  <div class="hero-badge">Open to Data, Finance &amp; Business Analyst Roles</div>
+  <h1>
+    Analytical by nature.<br/>
+    <span class="hl">Creative by choice.</span>
+  </h1>
+  <p class="hero-sub">
+    Financial analyst with 4 years at Citibank serving as a trusted partner to business leaders, using data-driven insights to support strategic decision-making. Experienced in financial reporting, budget forecasting, variance analysis, and automation at a Category I financial institution. Pursuing an MBA in Data Analytics at USF.
+  </p>
+  <div class="hero-actions">
+    <a href="#projects" class="btn-primary">See my work &rarr;</a>
+    <a href="resume.pdf" target="_blank" rel="noopener" class="btn-primary" style="background:var(--bg3); color:var(--text); border:1px solid var(--border2);">Download resume &darr;</a>
+    <a href="#contact" class="btn-ghost">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      Say hello
+    </a>
+    <a href="https://www.linkedin.com/in/lana-karazoun" target="_blank" rel="noopener" class="btn-ghost">LinkedIn &nearr;</a>
+    <a href="https://public.tableau.com/app/profile/lana4516" target="_blank" rel="noopener" class="btn-ghost">Tableau &nearr;</a>
+  </div>
+  <div class="hero-ticker">
+    Currently &mdash; <span>MBA in Data Analytics &middot; USF &middot; Expected May 2027</span>
+  </div>
+  <div class="hero-ticker" style="margin-top:0.6rem;">
+    Currently exploring &mdash; <span>Research Analytics &middot; Product &amp; Project Management &middot; People Analytics &middot; Healthcare Analytics</span>
+  </div>
+</div>
+
+<hr class="divider" />
+
+<section id="about">
+  <div class="container">
+    <div class="section-label">01 / About</div>
+    <h2 class="section-title">Analyst by training.<br/>Data-driven by heart.</h2>
+    <div class="about-grid">
+      <div class="about-bio">
+        <div style="margin-bottom:1.5rem;">
+          <img src="profile.png" alt="Lana Karazoun" style="width:220px; height:220px; border-radius:16px; object-fit:cover; border:2px solid var(--border2); display:block;" />
+          <div style="margin-top:1rem;">
+            <div style="font-family:var(--fh); font-size:17px; font-weight:700; color:var(--text);">Lana Karazoun</div>
+            <div style="font-size:13px; color:var(--muted);">Financial &amp; Data Analyst &middot; Tampa, FL</div>
+          </div>
+        </div>
+        <p>I worked as a Financial and Data Analyst at Citibank for 4 years, independently managing financial reporting, analysis, and accounting processes across complex portfolios. I served as a trusted financial partner to Directors and Senior Managers, providing data-driven insights to support strategic decisions and keeping every output audit-ready.</p>
+        <p>I was also the team's subject matter expert in automation, building 25+ KNIME automation workflows that cut manual workload by roughly 40% and improved reporting accuracy by about 80%. My technical stack spans SQL, Python, Power BI, Tableau, Excel, and KNIME. I'm currently completing an MBA in Data Analytics at USF, wrapping up in May 2027.</p>
+        <p>Outside of work, I'm exploring AI tools and personal research projects. I also spend time on piano, puzzles, writing, yoga, and painting. I like having a lot going on.</p>
+      </div>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card">
+          <div class="num">4</div>
+          <div class="label">Years at Citibank</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">25<span class="accent">+</span></div>
+          <div class="label">Automation workflows built at Citibank</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">MBA</div>
+          <div class="label">Data Analytics &middot; USF &middot; May 2027</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">B.S.</div>
+          <div class="label">Business Analytics &amp; Information Systems</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<section id="experience">
+  <div class="container">
+    <div class="section-label">02 / Experience</div>
+    <h2 class="section-title">Where I've done my best work.</h2>
+    <p class="section-desc">Roles that shaped how I think about data, operations, and working under real constraints.</p>
+    <div class="exp-list">
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">Aug 2022 &ndash; 2026</div>
+          <div class="exp-company">Citibank</div>
+        </div>
+        <div class="exp-content">
+          <div class="exp-title">Finance Regulatory &amp; Data Analyst</div>
+          <div class="exp-desc">Independently managed financial reporting, analysis, and accounting processes across Finance and Risk, supporting senior business leaders with data-driven insights and audit-ready outputs. Performed budget-to-actuals variance analysis, in-year forecasting, and historical trend analysis across multiple accounts. Acted as the primary financial liaison for assigned business functions, collaborating with Directors and Senior Managers to resolve complex financial issues. Served as the team's subject matter expert in automation, building 25+ KNIME automation workflows using SQL and Java that reduced manual workload by ~40% and improved reporting accuracy by ~80%. Delivered dashboards and self-service reporting solutions using Power BI, Tableau, and SQL aligned to business priorities.</div>
+          <div class="exp-tags">
+            <span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Power BI</span>
+            <span class="tag">Tableau</span><span class="tag">Excel</span><span class="tag">KNIME</span>
+            <span class="tag">Budget Forecasting</span><span class="tag">Variance Analysis</span>
+            <span class="tag">Financial Reporting</span><span class="tag">Automation</span>
+          </div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">2018 &ndash; 2020</div>
+          <div class="exp-company">Ann Taylor Loft</div>
+        </div>
+        <div class="exp-content">
+          <div class="exp-title">Customer Operations Associate</div>
+          <div class="exp-desc">Exceeded sales targets by 20-30% through strong communication, customer engagement, and operational accuracy. Developed foundational skills in client service, cross-team coordination, and front-line operations that now inform how I approach stakeholder relationships and data work.</div>
+          <div class="exp-tags">
+            <span class="tag">Sales Operations</span><span class="tag">Customer Engagement</span><span class="tag">Client Service</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<section id="projects">
+  <div class="container">
+    <div class="section-label">03 / Projects</div>
+    <h2 class="section-title">Work that ships with findings,<br/>not just features.</h2>
+    <p class="section-desc">Analytics and data projects with documented methodology, real outputs, and business-readable takeaways.</p>
+    <div class="projects-grid">
+
+      <div class="project-card featured">
+        <div class="proj-eyebrow">Featured report &middot; Tableau</div>
+        <div class="proj-title">The Shift to Online Retail: A Study of Brick &amp; Mortar's Decline</div>
+        <img src="retail-dashboard.png" alt="The E-Commerce Rise Tableau dashboard" style="width:100%; border-radius:8px; border:1px solid var(--border); margin: 1rem 0 0.25rem;" />
+        <p style="font-size:11px; color:var(--muted); font-family:var(--fh); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:0.75rem;">The E-Commerce Rise</p>
+        <img src="mortar-dashboard.png" alt="The Brick and Mortar Impact Tableau dashboard" style="width:100%; border-radius:8px; border:1px solid var(--border); margin-bottom: 1rem;" />
+        <p style="font-size:11px; color:var(--muted); font-family:var(--fh); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:0.75rem;">The Brick and Mortar Impact</p>
+        <div class="proj-desc">Analyzes the long-term decline of physical retail and the accelerating rise of e-commerce — exploring the structural, economic, and behavioral forces behind the shift through data visualizations that tell the story across time, sector, and geography.</div>
+        <div class="proj-finding"><strong>Why it stands out:</strong> The topic was my choice, and I put real research into it. It reflects how I approach data work — find a question worth asking, go find the answer, then make it readable.</div>
+        <div class="proj-footer">
+          <span class="proj-stack">Tableau &middot; Data research &middot; Trend analysis</span>
+          <div style="display:flex; gap:12px;">
+            <a href="https://public.tableau.com/views/TheDeclineofPhysicalRetailandtheRiseofE-CommerceintheU_S/TheBrickandMortarImpact" target="_blank" rel="noopener" class="proj-link">View dashboard &nearr;</a>
+            <a href="retail-report.pdf" target="_blank" rel="noopener" class="proj-link">Read the report &nearr;</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="proj-eyebrow">Report &middot; Tableau</div>
+        <div class="proj-title">Automotive Sales Analysis</div>
+        <div class="proj-desc">An analysis of automotive sales data examining average cost, sales price, and labor costs across countries and makes. Includes proportional sales breakdowns by make to surface which segments drive volume versus margin.</div>
+        <div class="proj-footer">
+          <span class="proj-stack">Tableau &middot; Sales analytics</span>
+          <a href="https://public.tableau.com/views/CarSalesAssignment_17747326002680/ProportionofSalesperMake" target="_blank" rel="noopener" class="proj-link">View report &nearr;</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="proj-eyebrow">More Tableau work</div>
+        <div class="proj-title">6 additional projects</div>
+        <div class="proj-desc">
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; margin-top:4px;">
+            <li style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid var(--border); padding-bottom:6px;"><span>Global Revenue and Cost Analysis</span><a href="https://public.tableau.com/views/GlobalRevenueandCostAnalysis/AmountofNetRevenueGeneratedbyEachProduct" target="_blank" rel="noopener" style="color:var(--accent); font-size:12px;">View &nearr;</a></li>
+            <li style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid var(--border); padding-bottom:6px;"><span>Tampa Covid Case Analysis (2020-2021)</span><a href="https://public.tableau.com/views/CovidCaseAnalysisfor3CountiesinSouthFlorida2020-2021/MovingAverageofthenumberofnewCovidCasesFor3Counties2020-2021" target="_blank" rel="noopener" style="color:var(--accent); font-size:12px;">View &nearr;</a></li>
+            <li style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid var(--border); padding-bottom:6px;"><span>English Premier League Analysis</span><a href="https://public.tableau.com/views/EnglishPremierLeagueAnalysis_17744077631710/CorrelationofcitypopulationandcityGDPpercapitaVSnumberofwinsforeachclub" target="_blank" rel="noopener" style="color:var(--accent); font-size:12px;">View &nearr;</a></li>
+            <li style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid var(--border); padding-bottom:6px;"><span>Residential Property Sales Analysis</span><a href="https://public.tableau.com/views/KaggleDashboard_17647187044330/KaggleDashboard" target="_blank" rel="noopener" style="color:var(--accent); font-size:12px;">View &nearr;</a></li>
+            <li style="display:flex; justify-content:space-between; font-size:13px; border-bottom:1px solid var(--border); padding-bottom:6px;"><span>Direct Marketing Analysis</span><a href="https://public.tableau.com/views/DirectMarketingAnalysis_17646343174630/DirectMarketingAnalysis" target="_blank" rel="noopener" style="color:var(--accent); font-size:12px;">View &nearr;</a></li>
+            <li style="display:flex; justify-content:space-between; font-size:13px; padding-bottom:2px;"><span>Health vs. Economic Measure</span><a href="https://public.tableau.com/views/Healthvs_EconomicMeasure/HealthvsEconomicMeasure" target="_blank" rel="noopener" style="color:var(--accent); font-size:12px;">View &nearr;</a></li>
+          </ul>
+        </div>
+        <div class="proj-footer">
+          <a href="https://public.tableau.com/app/profile/lana4516" target="_blank" rel="noopener" class="proj-link">View full Tableau profile &nearr;</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<section id="skills">
+  <div class="container">
+    <div class="section-label">04 / Skills</div>
+    <h2 class="section-title">The stack behind the work.</h2>
+    <p class="section-desc">Tools I reach for regularly, what I use them for, and where I'm growing.</p>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">Data &amp; Analytics</div>
+        <ul class="skill-list">
+          <li>SQL <span class="skill-pill pill-strong">Expert</span></li>
+          <li>Python <span class="skill-pill pill-strong">Proficient</span></li>
+          <li>Excel <span class="skill-pill pill-strong">Expert</span></li>
+          <li>Data Analysis <span class="skill-pill pill-strong">Expert</span></li>
+          <li>KNIME <span class="skill-pill pill-strong">Expert</span></li>
+          <li>R <span class="skill-pill pill-learning">Learning</span></li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">BI &amp; Visualization</div>
+        <ul class="skill-list">
+          <li>Tableau <span class="skill-pill pill-strong">Proficient</span></li>
+          <li>Power BI <span class="skill-pill pill-strong">Proficient</span></li>
+          <li>MS Copilot <span class="skill-pill pill-active">Active</span></li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Finance &amp; Operations</div>
+        <ul class="skill-list">
+          <li>Budget Forecasting <span class="skill-pill pill-strong">Expert</span></li>
+          <li>Variance Analysis <span class="skill-pill pill-strong">Expert</span></li>
+          <li>Financial Reporting <span class="skill-pill pill-strong">Expert</span></li>
+          <li>Account Reconciliation <span class="skill-pill pill-strong">Expert</span></li>
+          <li>Regulatory Compliance <span class="skill-pill pill-strong">Expert</span></li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Workflow &amp; Tools</div>
+        <ul class="skill-list">
+          <li>Automation <span class="skill-pill pill-strong">Expert</span></li>
+          <li>Data Validation <span class="skill-pill pill-strong">Expert</span></li>
+          <li>Process Improvement <span class="skill-pill pill-strong">Expert</span></li>
+          <li>Git / GitHub <span class="skill-pill pill-active">Active</span></li>
+          <li>Claude (Anthropic) <span class="skill-pill pill-learning">Exploring</span></li>
+          <li>AI &amp; Automation <span class="skill-pill pill-learning">Exploring</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<section id="resume">
+  <div class="container">
+    <div class="section-label">05 / Resume</div>
+    <h2 class="section-title">Education, credentials,<br/>and the stack at a glance.</h2>
+    <div class="resume-row">
+      <div>
+        <div class="resume-block">
+          <div class="resume-block-title">Education</div>
+          <div class="resume-row-item">
+            <span class="item-label">MBA &mdash; Data Analytics</span>
+            <span class="item-val">USF &middot; May 2027</span>
+          </div>
+          <div class="resume-row-item">
+            <span class="item-label">B.S. Business Analytics &amp; Information Systems</span>
+            <span class="item-val">USF</span>
+          </div>
+        </div>
+        <div class="resume-block" style="margin-top:2rem">
+          <div class="resume-block-title">Certifications</div>
+          <div class="cert-item">
+            <div class="cert-dot"></div>
+            <div>
+              <div class="cert-name">Tableau Citizen Data Science</div>
+              <div class="cert-issuer">Tableau</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-dot"></div>
+            <div>
+              <div class="cert-name">Microsoft Office Certification</div>
+              <div class="cert-issuer">Microsoft</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-dot"></div>
+            <div>
+              <div class="cert-name">Business Analytics Certificate &mdash; In Progress</div>
+              <div class="cert-issuer">USF Graduate School &middot; May 2027</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="resume-block">
+          <div class="resume-block-title">Core stack</div>
+          <div class="resume-row-item"><span class="item-label">Data &amp; Analytics</span><span class="item-val">SQL &middot; Python &middot; Excel &middot; R &middot; KNIME</span></div>
+          <div class="resume-row-item"><span class="item-label">BI &amp; Visualization</span><span class="item-val">Tableau &middot; Power BI &middot; MS Copilot</span></div>
+          <div class="resume-row-item"><span class="item-label">Finance &amp; Operations</span><span class="item-val">Budget Forecasting &middot; Variance Analysis &middot; Financial Reporting &middot; Account Reconciliation</span></div>
+          <div class="resume-row-item"><span class="item-label">Domain expertise</span><span class="item-val">Finance &middot; Automation &middot; Data Visualization &middot; Regulatory Compliance</span></div>
+          <div class="resume-row-item"><span class="item-label">Currently exploring</span><span class="item-val">Research Analytics &middot; Product &amp; Project Management &middot; People Analytics &middot; Healthcare Analytics</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="resume-ctas">
+      <a href="resume.pdf" target="_blank" rel="noopener" class="btn-primary">Download resume &darr;</a>
+      <a href="https://public.tableau.com/app/profile/lana4516" target="_blank" rel="noopener" class="btn-ghost">Tableau portfolio &nearr;</a>
+      <a href="https://www.linkedin.com/in/lana-karazoun" target="_blank" rel="noopener" class="btn-ghost">LinkedIn &nearr;</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <div class="section-label">06 / Contact</div>
+      <h2 class="section-title">Open to the right opportunity.</h2>
+      <p class="section-desc" style="margin-bottom:0">I'm a curious, detail-oriented analyst who likes figuring things out — whether that's a messy dataset, an automation opportunity, or a business question nobody has thought to ask yet. If you're looking for someone who brings both analytical rigor and creative thinking to the table, let's talk.</p>
+      <div class="contact-links">
+        <a href="mailto:Lkarazoun@gmail.com" class="contact-link">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Email me
+        </a>
+        <a href="https://www.linkedin.com/in/lana-karazoun" target="_blank" rel="noopener" class="contact-link">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://public.tableau.com/app/profile/lana4516" target="_blank" rel="noopener" class="contact-link">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+          Tableau
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Lana Karazoun &middot; Built with care
+</footer>
+
+</body>
+</html>

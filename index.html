@@ -72,22 +72,32 @@ nav {
   min-height: calc(100vh - 56px);
   display: flex; flex-direction: column; justify-content: center; align-items: center;
   padding: 6rem 4rem 4rem;
-  max-width: 1000px; margin: 0 auto;
+  max-width: 100%;
   text-align: center;
+  background: url('hero-bg.jpg') center center / cover no-repeat;
+  position: relative;
 }
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(5, 8, 30, 0.6);
+  pointer-events: none;
+}
+.hero > * { position: relative; z-index: 1; }
+.hero-inner { max-width: 860px; margin: 0 auto; width: 100%; display: flex; flex-direction: column; align-items: center; }
 .hero-badge {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 12px; font-family: var(--fh); font-weight: 600;
   letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--accent);
-  border: 1px solid rgba(91,95,214,0.25);
-  background: rgba(91,95,214,0.06);
+  color: #b8bcff;
+  border: 1px solid rgba(184,188,255,0.3);
+  background: rgba(139,146,248,0.15);
   border-radius: 100px; padding: 5px 14px;
   margin-bottom: 2rem; width: fit-content;
 }
 .hero-badge::before {
   content: ''; width: 7px; height: 7px; border-radius: 50%;
-  background: var(--accent);
+  background: #b8bcff;
   animation: pulse 2s ease-in-out infinite;
 }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
@@ -95,13 +105,13 @@ nav {
 .hero h1 {
   font-family: var(--fh); font-size: clamp(2.2rem, 3.5vw, 3rem);
   font-weight: 700; line-height: 1.15; letter-spacing: -0.03em;
-  margin-bottom: 1.75rem; color: var(--text);
+  margin-bottom: 1.75rem; color: #ffffff;
   white-space: nowrap;
 }
-.hero h1 .hl { color: var(--accent); }
+.hero h1 .hl { color: #b8bcff; }
 
 .hero-sub {
-  font-size: 18px; color: var(--muted); max-width: 580px;
+  font-size: 18px; color: rgba(255,255,255,0.75); max-width: 580px;
   margin-bottom: 2.5rem; line-height: 1.75; text-align: center;
 }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
@@ -115,20 +125,20 @@ nav {
 .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
 
 .btn-ghost {
-  font-size: 14px; color: var(--muted); padding: 12px 20px; border-radius: 10px;
-  border: 1px solid var(--border2); background: var(--bg2);
+  font-size: 14px; color: rgba(255,255,255,0.8); padding: 12px 20px; border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.08);
   transition: color 0.2s, border-color 0.2s, background 0.2s;
   display: flex; align-items: center; gap: 6px;
 }
-.btn-ghost:hover { color: var(--text); border-color: rgba(91,95,214,0.3); background: rgba(91,95,214,0.06); }
+.btn-ghost:hover { color: #fff; border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.15); }
 
 .hero-ticker {
-  margin-top: 3.5rem; font-size: 12px; color: var(--muted);
+  margin-top: 3.5rem; font-size: 12px; color: rgba(255,255,255,0.5);
   font-family: var(--fh); letter-spacing: 0.04em;
   display: flex; align-items: center; gap: 8px;
   flex-wrap: wrap; justify-content: center;
 }
-.hero-ticker span { color: var(--accent); }
+.hero-ticker span { color: #b8bcff; }
 
 /* SECTIONS */
 section { padding: 6rem 4rem; }
@@ -385,7 +395,8 @@ footer {
   <a href="#contact" class="nav-cta">Get in touch &rarr;</a>
 </nav>
 
-<div class="hero container">
+<div class="hero">
+  <div style="max-width:860px; width:100%; display:flex; flex-direction:column; align-items:center; position:relative; z-index:1;">
   <div class="hero-badge">Open to Data, Finance &amp; Business Analyst Roles</div>
   <h1>
     Analytical by nature.<br/>
@@ -396,7 +407,7 @@ footer {
   </p>
   <div class="hero-actions">
     <a href="#projects" class="btn-primary">See my work &rarr;</a>
-    <a href="resume.pdf" target="_blank" rel="noopener" class="btn-primary" style="background:var(--bg3); color:var(--text); border:1px solid var(--border2);">Download resume &darr;</a>
+    <a href="resume.pdf" target="_blank" rel="noopener" class="btn-ghost">Download resume &darr;</a>
     <a href="#contact" class="btn-ghost">
       <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
       Say hello
@@ -409,6 +420,7 @@ footer {
   </div>
   <div class="hero-ticker" style="margin-top:0.6rem;">
     Currently exploring &mdash; <span>Research Analytics &middot; Product &amp; Project Management &middot; People Analytics &middot; Healthcare Analytics</span>
+  </div>
   </div>
 </div>
 
